@@ -1,17 +1,12 @@
-from sqlite3.dbapi2 import Time
 from telethon.sync import TelegramClient
 import time
-import sqlite3
-
-
 import pandas as pd
 
 from config import api_id, api_hash, session_name
 
-con = sqlite3.connect("telegram_vv_volodin.sqlite")
 
 missing_offset = dict()
-offset_start = 371100
+offset_start = 0
 LIMIT = 99
 
 
@@ -21,16 +16,6 @@ def myRange(start, end, step):
         yield i
         i += step
     yield end
-
-
-def save_to_json(dicto):
-    df = pd.DataFrame.from_records([dicto.to_dict()])
-    # Write the new DataFrame to a new SQLite table
-    df_id = df.from_id.apply(pd.Series)
-    df_to_store = pd.concat([df[["date", "message"]], df_id[["user_id"]]], axis=1)
-    df_to_store.to_sql("replies", con, if_exists="append")
-    """ with open(f"vv_volodin_{i}.json", "w", encoding="utf-8", errors="ignore") as file:
-        df[["from_id", "date", "message"]].to_json(file, force_ascii=False) """
 
 
 def save_to_json(all_dict, offset):
@@ -77,6 +62,7 @@ def main():
                 df_status.columns = ["offset", "status", "count"]
                 df_status.to_csv("status.csv")
                 if message_counts < LIMIT:
+                    print("Warning limit reached !!!")
                     time.sleep(60 * 5)
 
 
