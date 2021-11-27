@@ -7,10 +7,13 @@ Retrieve all comments on the post of the russian Duma's President VV Volodine :
 ![This is an image](vv-volodin.PNG)
 
 
+
+with the help of the [telethon](https://github.com/LonamiWebs/Telethone) package.
+
 ## Requirements
 - python >3.8
 - a valid Telegram API Key see the [instructions](https://core.telegram.org/api/obtaining_api_id).
-using the [telethon](https://github.com/LonamiWebs/Telethone) package.
+
 
 
 ## Usage
