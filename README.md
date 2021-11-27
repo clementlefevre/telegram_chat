@@ -28,3 +28,5 @@ with the help of the [telethon](https://github.com/LonamiWebs/Telethone) package
 - you get the all data for the field ["date", "user_id" "text"] as both a `.csv`  and an `.xlsx` file.
 
 
+## License
+Apache License
