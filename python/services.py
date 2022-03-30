@@ -60,4 +60,4 @@ def combine_all_xlsx():
     df_all.to_csv("df_all.csv", index=False, encoding="UTF-8")
 
 
-combine_all_xlsx()
+# combine_all_xlsx()
